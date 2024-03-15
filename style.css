@@ -1,0 +1,10 @@
+.Grid-principal {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    background-color: lightgreen;
+}
+
+.Grid-principal > div {
+    display: grid;
+    background-color: lightblue;
+}
