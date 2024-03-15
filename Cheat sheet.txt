@@ -1,0 +1,1173 @@
+|||||||||||||||||||||  GRID  |||||||||||||||||||||
+
+----------------------------------------------------------------------------------------------------
+°°°°Un diseño de cuadrícula consta de un elemento principal, con uno o más elementos secundarios.°°°°
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1>Grid Elements</h1>
+
+<p>A Grid Layout must have a parent element with the <em>display</em> property set to <em>grid</em> or <em>inline-grid</em>.</p>
+
+<p>Direct child element(s) of the grid container automatically becomes grid items.</p>
+
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>  
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>  
+  <div class="grid-item">7</div>
+  <div class="grid-item">8</div>
+  <div class="grid-item">9</div>  
+</div>
+
+</body>
+</html>
+
+----------------------------------------------------------------------------------------------------
+°°°° Las líneas verticales de los elementos de la cuadrícula se denominan _columns_°°°°
+°°°° Las líneas horizontales de los elementos de la cuadrícula se denominan _rows_°°°°
+Puede ajustar el tamaño del espacio utilizando una de las siguientes propiedades:
+column-gap
+row-gap
+gap
+----------------------------------------------------------------------------------------------------
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+</style>
+</head>
+<body>
+
+<h1>Grid Lines</h1>
+
+<div class="grid-container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>  
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+  <div class="item6">6</div>
+  <div class="item7">7</div>
+  <div class="item8">8</div>  
+</div>
+
+<p>You can refer to line numbers when placing grid items.</p>
+
+</body>
+</html>
+
+----------------------------------------------------------------------------------------------------
+<head>
+<style>
+.grid-container {
+  display: grid;
+  height: 400px;
+  align-content: center;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+</style>
+</head>
+<body>
+
+<h1>The align-content Property</h1>
+
+<p>Use the <em>align-content</em> property to vertically align the grid inside the container.</p>
+
+<p>The value "center" will align the rows in the middle of the container:</p>
+
+<div class="grid-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>  
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>  
+</div>
+
+</body>
+</html>
+----------------------------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.item1 {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+.item2 {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+
+.item5 {
+  grid-column: 1 / span 3;
+  grid-row: 3;
+}
+</style>
+</head>
+<body>
+
+<h1>A Five Items Grid Layout</h1>
+
+<div class="grid-container">
+  <div class="grid-item item1">1</div>
+  <div class="grid-item item2">2</div>
+  <div class="grid-item item3">3</div>  
+  <div class="grid-item item4">4</div>
+  <div class="grid-item item5">5</div>
+</div>
+
+<p>Direct child elements(s) of the grid container automatically becomes grid items.</p>
+
+<p>Item 1, 2, and 5 are set to span multiple columns or rows.</p>
+
+</body>
+</html>
+
+----------------------------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.item1 {
+  grid-column: 1 / 4;
+}
+</style>
+</head>
+<body>
+
+<h1>The grid-column Property</h1>
+
+<p>Use the <em>grid-column</em> property to specify where to place an item.</p>
+<p>Item1 will start on column 1 and end before column 5:</p>
+
+<div class="grid-container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>  
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+  <div class="item6">6</div>
+  <div class="item7">7</div>
+  <div class="item8">8</div>  
+  <div class="item9">9</div>
+  <div class="item10">10</div>
+  <div class="item11">11</div>
+  <div class="item12">12</div>
+  <div class="item13">13</div>
+  <div class="item14">14</div>
+  <div class="item15">15</div>
+</div>
+
+</body>
+</html>
+
+----------------------------------------------------------------------------------------------------
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.item2 {
+  grid-column: 2 / span 3;
+}
+</style>
+</head>
+<body>
+
+<h1>The grid-column Property</h1>
+
+<p>Use the <em>grid-column</em> property to specify where to place an item.</p>
+<p>Item2 will start on column line 2 and span 3 columns:</p>
+
+<div class="grid-container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>  
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+  <div class="item6">6</div>
+  <div class="item7">7</div>
+  <div class="item8">8</div>  
+  <div class="item9">9</div>
+  <div class="item10">10</div>
+  <div class="item11">11</div>
+  <div class="item12">12</div>
+  <div class="item13">13</div>
+  <div class="item14">14</div>
+  <div class="item15">15</div>
+  <div class="item16">16</div>
+</div>
+
+</body>
+</html>
+
+----------------------------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.item1 {
+  grid-row: 1 / span 2;
+}
+</style>
+</head>
+<body>
+
+<h1>The grid-row Property</h1>
+
+<p>Use the <em>grid-row</em> property to specify where to place an item.</p>
+<p>Item1 will start on row 1 and span 2 rows:</p>
+
+<div class="grid-container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>  
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+  <div class="item6">6</div>
+  <div class="item7">7</div>
+  <div class="item8">8</div>  
+  <div class="item9">9</div>
+  <div class="item10">10</div>
+  <div class="item11">11</div>
+  <div class="item12">12</div>
+  <div class="item13">13</div>
+  <div class="item14">14</div>
+  <div class="item15">15</div>
+  <div class="item16">16</div>
+  <div class="item17">17</div>
+</div>
+
+</body>
+</html>
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+|||||||||||||||||||||  FORMS  |||||||||||||||||||||
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2>Responsive Form</h2>
+<p>Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other.</p>
+
+<div class="container">
+  <form action="/action_page.php">
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">First Name</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="lname">Last Name</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="country">Country</label>
+    </div>
+    <div class="col-75">
+      <select id="country" name="country">
+        <option value="australia">Australia</option>
+        <option value="canada">Canada</option>
+        <option value="usa">USA</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="subject">Subject</label>
+    </div>
+    <div class="col-75">
+      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <input type="submit" value="Submit">
+  </div>
+  </form>
+</div>
+
+</body>
+</html>
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+|||||||||||||||||||||  NAV  |||||||||||||||||||||
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {margin: 0;}
+
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #04AA6D;}
+
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px) {
+  ul.topnav li.right, 
+  ul.topnav li {float: none;}
+}
+</style>
+</head>
+<body>
+
+<ul class="topnav">
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li class="right"><a href="#about">About</a></li>
+</ul>
+
+<div style="padding:0 16px;">
+  <h2>Responsive Topnav Example</h2>
+  <p>This example use media queries to stack the topnav vertically when the screen size is 600px or less.</p>
+  <p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+  <h4>Resize the browser window to see the effect.</h4>
+</div>
+
+</body>
+</html>
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+|||||||||||||||||||||  IMG POP UP  |||||||||||||||||||||
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.container:hover .overlay {
+  bottom: 0;
+  height: 100%;
+}
+
+.text {
+  white-space: nowrap; 
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+</style>
+</head>
+<body>
+
+<h2>Slide in Overlay from the Top</h2>
+
+<div class="container">
+  <img src="img_avatar.png" alt="Avatar" class="image">
+  <div class="overlay">
+    <div class="text">Hello World</div>
+  </div>
+</div>
+ 
+</body>
+</html>
+
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+|||||||||||||||||||||  MEDIA QUERY  |||||||||||||||||||||
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+div.example {
+  background-color: yellow;
+  padding: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  div.example {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2>Hide elements on different screen sizes</h2>
+
+<div class="example">Example DIV.</div>
+
+<p>When the browser's width is 600px wide or less, hide the div element. Resize the browser window to see the effect.</p>
+
+</body>
+</html>
+
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+|||||||||||||||||||||  FLEXBOX  |||||||||||||||||||||
+<html>
+<head>
+<style>
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  background-color: DodgerBlue;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+</style>
+</head>
+<body>
+
+<h1>The flex-direction Property</h1>
+
+<p>The "flex-direction: column;" stacks the flex items vertically (from top to bottom):</p>
+
+<div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>  
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  text-align: center;
+}
+
+.flex-item-left {
+  background-color: #f1f1f1;
+  padding: 10px;
+  flex: 50%;
+}
+
+.flex-item-right {
+  background-color: dodgerblue;
+  padding: 10px;
+  flex: 50%;
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<h1>Responsive Flexbox</h1>
+
+<p>The "flex-direction: row;" stacks the flex items horizontally (from left to right).</p>
+<p>The "flex-direction: column;" stacks the flex items vertically (from top to bottom).</p>
+<p><b>Resize the browser window to see that the direction changes when the 
+screen size is 800px wide or smaller.</b></p>
+
+<div class="flex-container">
+  <div class="flex-item-left">1</div>
+  <div class="flex-item-right">2</div>
+</div>
+
+</body>
+</html>
+
+
+
+<html>
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  display: flex;
+  background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Column container */
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row, .navbar {   
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Note -->
+<div style="background:yellow;padding:5px">
+  <h4 style="text-align:center">Resize the browser window to see the responsive effect.</h4>
+</div>
+
+<!-- Header -->
+<div class="header">
+  <h1>My Website</h1>
+  <p>With a <b>flexible</b> layout.</p>
+</div>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+</div>
+
+<!-- The flexible grid (content) -->
+<div class="row">
+  <div class="side">
+    <h2>About Me</h2>
+    <h5>Photo of me:</h5>
+    <div class="fakeimg" style="height:200px;">Image</div>
+    <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+    <h3>More Text</h3>
+    <p>Lorem ipsum dolor sit ame.</p>
+    <div class="fakeimg" style="height:60px;">Image</div><br>
+    <div class="fakeimg" style="height:60px;">Image</div><br>
+    <div class="fakeimg" style="height:60px;">Image</div>
+  </div>
+  <div class="main">
+    <h2>TITLE HEADING</h2>
+    <h5>Title description, Dec 7, 2017</h5>
+    <div class="fakeimg" style="height:200px;">Image</div>
+    <p>Some text..</p>
+    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    <br>
+    <h2>TITLE HEADING</h2>
+    <h5>Title description, Sep 2, 2017</h5>
+    <div class="fakeimg" style="height:200px;">Image</div>
+    <p>Some text..</p>
+    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <h2>Footer</h2>
+</div>
+
+</body>
+</html>
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+
+|||||||||||||||||||||  BOTTON  |||||||||||||||||||||
+
+<html>
+<head>
+<style>
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+</head>
+<body>
+
+<h2>Animated Button</h2>
+
+<button class="button" style="vertical-align:middle"><span>Hover </span></button>
+
+</body>
+</html>
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+
+|||||||||||||||||||||  Animation  |||||||||||||||||||||
+
+<html>
+<head>
+<style> 
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+}
+
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+</style>
+</head>
+<body>
+
+<h1>CSS Animation</h1>
+
+<div></div>
+
+<p><b>Note:</b> When an animation is finished, it goes back to its original style.</p>
+
+</body>
+</html>
+
+----------------------------------------------------------------------------------------------------
+animation: fadeInOut 2.8s forwards;
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+----------------------------------------------------------------------------------------------------
+====================================================================
+====================================================================
+====================================================================
+====================================================================
+====================================================================
+====================================================================
+¡IMPORTANTE!
+    - Si se buscar hacer un fondo a la página, NO USAR EL * EN CSS.
+
+    - Si la pagina ya tiene un color de fondo, NO HACE FALTA PONER
+    EL COLOR EN CADA CLASE/ID.
+
+    - NO PONERLE BACKGROUND A UNA IMAGEN O SE VERÁ COMO PARTE DE LA
+    MISMA.
+
+    - SI HAY SVG **REVISAR SI TIENE UN HEIGHT Y WIDTH POR DEFECTO EN
+    SU LÍNEA.
+
+    - Si el form no redirecciona, cambia el method="post".
+
+    - Border radius con relativa para que no cambie la figura con
+    menos/mas pixeles.
+
+    - Si usas margins para mover imágenes, una vez fuera de la vista
+    no generan un scrollbar :C.
+====================================================================
+
+
+Para que funcione el @media query:
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+Para buscar CSS:
+    <link rel="stylesheet" href="style.css"> 
+
+
+HYPERVÍNCULOS:
+    <a href:"URL.com/.html">
+Para quitar ##HYPERVÍNCULOS##
+Para lo azul y linea del vínculo:
+    style="color: inherit; text-decoration: none"
+    Donde inherit deja color normal y txt deco quita barra baja
+
+
+##MEDIA QUERY/
+Ver en cel(si permiten):
+    Ubuntu: En terminar escribir ip addr y escribir desde google en
+    celular:
+        (Ip frente a inet):Número de puerto(5500)
+
+    Windows: En terminal escribir ipconfig y escribir la IPv4 desde
+    google en celular:
+        IPv4:Número de puerto(5500)
+
+
+Centrar hori y verti:
+    CSS/<style>:
+        body{
+            display: flex;
+            justify-content: center;
+            text-align: center;}
+
+
+Input RADIO si +1 opción:
+    2 opciones, 1 elegible
+    <div>
+        <input type="radio">
+        <div>
+            <p>Colegios Privados</p> 
+        </div>
+
+        <input type="radio">
+        <div>
+            <p>Colegios Privados</p> 
+        </div>
+    </div>
+
+
+##BACKGROUND##
+Gradientes para background:
+    Los porcentajes indican hasta donde va, si son iguales no hay gradient entre ellos 2
+    
+    CSS/<style>:
+        .class/#id{
+        background: linear-gradient(#ff0099 20%,#ffb42a 70%,#ffffff 70%,#0000ff 90%)}
+Otros...
+    no-repeat hace que el fondo no se repita
+
+    background-size: cover 
+    hará que la imagen llene la pag cambiando su tamaño con responsive y
+    si es menor a su tamaño se quedara quieta.
+        ampliar= adapta
+        reducir=recortarse
+    
+
+##ANIMACIONES##
+Animaciones asignar:
+    CSS/<style>:
+    .class/#id{
+        animation: (primera especificación d segundos es duración) (segundoa especificación d seg es retraso)
+            (Nombre de la animacion de keyframes)
+            (los ease hacen que se realice rápido un momento de la animacion)
+    }
+En keyframe:
+    Se pueden usar tanto como % como segundos(s) para su proceso
+    ¡RECUERDA LOS SEGUNDOS EN ASIGNAR!
+        @keyframe Nombre_Animación{
+            0%{
+                opacity: %;
+                                         X=ancho     Y=Largo
+                transform: scaleY(%); ¡X y Y de plano carteciano!
+
+                                        top, left, right, bottom
+                top: #vi  ¡Hará que se translade(Permite negativos)!
+
+                color: #hex ¡Cambia color con animación
+            }
+            100%{
+
+            }
+        }
+
+
+
+
+
+
+
+
+<html>
+<head>
+<style>
+.p1 {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.p2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.p3 {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+</style>
+</head>
+<body>
+
+<h1>CSS font-family</h1>
+<p class="p1">This is a paragraph, shown in the Times New Roman font.</p>
+<p class="p2">This is a paragraph, shown in the Arial font.</p>
+<p class="p3">This is a paragraph, shown in the Lucida Console font.</p>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+HECHO POR HERNAN MENDEZ GUERRERO
+
